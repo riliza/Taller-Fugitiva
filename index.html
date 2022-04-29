@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>  𝒯𝓊𝓉𝑜𝓇𝒾𝒶𝓁 ℱ𝓊𝑔𝒾𝓉𝒾𝓋𝒶 </title>
+
+           <!-- AFRAME https://aframe.io/docs/1.3.0/introduction/ -->
+
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+
+       <!--ESTE ES EL CODIGO PARA GIFS  -->
+       <script src="ttps://rawgit.com/mayognaise/aframe-gif-component/master/dist/aframe-gif-component.min.js"></script>
+       <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
+       <script  src ="https://unpkg.com/aframe-spritesheet-component/dist/aframe-spritesheet-component.min.js " ></script> 
+</head>
+<body>
+  
+    <a-scene>
+       
+
+    <assets>
+
+
+        <!-- Imagen -->
+        <img id="imagen" src=./assets/imagen.png>
+
+        <!-- Modelo 3D -->
+        <a-asset-item id="modelo3d" src="./assets/Modelo3d.gltf" ></a-asset-item>
+       
+        <!-- Modelo 3D 2-->
+        <a-asset-item id="letras" src="./assets/letras.gltf" ></a-asset-item>
+
+        <!-- Sky -->
+        <img id="sky" src="./assets/ss.png">
+
+
+    </assets>
+
+<!-- Sky -->
+<a-sky src="#sky"></a-sky>  
+             
+<!-- METER UN GIF -->
+<a-entity geometry="primitive:plane;width:" position="7.931 4.01 -12.56" rotation="0 -28 0" scale="11.68 6.67 1" material="shader:gif;src:url(./assets/animacion.gif); repeat: 2 2;transparent: true;alphaTest:0.5"></a-entity>
+
+<!-- Imagen -->
+<a-image src="#imagen"  position="14.956 7.687 14.551" scale="20 15 1" rotation="0 -147.8 0"></a-image>
+         
+<!-- Modelo 3D 1 -->
+<a-entity gltf-model="#modelo3d" scale="2 2 2" position="-11.393 2 -8.948" rotation="0 -52.35 0"></a-entity>
+      
+<!-- Modelo 3D 2 -->
+<a-entity gltf-model="#letras" scale="5 5 5" position="-35.04 -5.994 1" rotation="0 35 -5.06"></a-entity>
+
+<!-- Audio -->
+<a-sound src="src: url(./assets/audio.mp3)" autoplay="true" loop="true" position="0 2 2" scale="1 1 1" rotation="0 0 0"></a-sound>
+
+<!--  Texto -->
+<a-text value="Hello, World!" color="pink" position="25.145 3.22 -18.53" scale="22 22 22" rotation="0 -90 0"></a-text>
+
+<!-- Animacion de: box,plane,cylinder,sphere -->
+<a-entity rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000">
+    <a-sphere position="5 5 5" src="#imagen"></a-sphere>
+</a-entity>
+
+</body>
+</html>
